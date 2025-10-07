@@ -7,12 +7,10 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
-        boolean isInvalid = false;
+        String promptAgain = "";
         //ToDo fix do while logic
         do {
             try {
-
-
                 String[] quotes ={"The only thing we have to fear is fear itself",
                 "In the end, we will remember not the words of our enemies, but the silence of our friends.",
                 "Be the change that you wish to see in the world.",
@@ -30,19 +28,17 @@ public class Main {
 
                 String quote = quotes[userNumber - 1];
                 System.out.println(quote);
-                isInvalid = true;
-
+                
+                System.out.println("would you like to see another? (Y/N");
+                 promptAgain = scanner.nextLine();
+                
+                
             } catch (Exception e) {
                 System.out.println("Invalid input");
             }
 
-            System.out.println("would you like to see another? (Y/N");
-            String promptAgain = scanner.nextLine();
-            if (promptAgain.equalsIgnoreCase("N")){
-                isInvalid = true;
-            }
-
-        }while(!isInvalid);
+            
+        }while(promptAgain.equalsIgnoreCase("Y") || promptAgain.equalsIgnoreCase("YES"));
     }
 
     private void promptUserForQuote(){
